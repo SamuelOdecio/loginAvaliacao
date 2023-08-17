@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label slot="start">Categoria</ion-label>
+      <ion-select  slot="end" cancelText="Cancelar" okText="Confirmar">
+        <ion-select-option>Tipo1</ion-select-option>
+        <ion-select-option>Tipo2</ion-select-option>
+        <ion-select-option>Tipo3</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Nome </ion-label>
+      <ion-input placeholder="Digite seu nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" type="number"> CPF </ion-label>
+      <ion-input placeholder="Digite seu CPF"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" type="tel"> Telefone </ion-label>
+      <ion-input type="tel" placeholder="888-888-8888"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" type="email"> Email </ion-label>
+      <ion-input placeholder="Digite seu email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" type="password"> Senha </ion-label>
+      <ion-input placeholder="Digite sua senha"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="abrirPagina('login')">Salvar</ion-button>
+
+  </ion-list>
+</ion-content>

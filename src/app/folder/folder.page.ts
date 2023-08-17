@@ -1,5 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController, ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-folder',
@@ -7,11 +9,42 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  public folder!: string;
-  private activatedRoute = inject(ActivatedRoute);
-  constructor() {}
+  public user = {
+    usuario: "",
+    senha: ""
+  }
+
+  constructor(public nav: NavController, private toastController: ToastController) { }
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Dados incorreta!',
+      duration: 500,
+      position: position
+    });
+    await toast.present();
+  }
+
+  logar(x: string) {
+
+    if (this.user.usuario == "Gerente" && this.user.senha == "000111") {
+      this.nav.navigateForward(x);
+    } else {
+      this.presentToast('top')
+    }
+
+  }
+
+
+
+  cadastrar(x: string) {
+    this.nav.navigateForward(x);
+
+  }
+
+
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
+
 }
